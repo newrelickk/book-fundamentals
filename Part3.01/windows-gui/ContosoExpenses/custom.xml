@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+  <instrumentation>
+
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="WPF/DatabaseService.GetEmployee">
+      <match assemblyName="ContosoExpenses.Data" className="ContosoExpenses.Data.Services.DatabaseService">
+        <exactMethodMatcher methodName="GetEmployee" />
+      </match>
+    </tracerFactory>
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="WPF/DatabaseService.GetEmployees">
+      <match assemblyName="ContosoExpenses.Data" className="ContosoExpenses.Data.Services.DatabaseService">
+        <exactMethodMatcher methodName="GetEmployees" />
+      </match>
+    </tracerFactory>
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="WPF/DatabaseService.GetExpenses">
+      <match assemblyName="ContosoExpenses.Data" className="ContosoExpenses.Data.Services.DatabaseService">
+        <exactMethodMatcher methodName="GetExpenses" />
+      </match>
+    </tracerFactory>
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="WPF/DatabaseService.GetExpense">
+      <match assemblyName="ContosoExpenses.Data" className="ContosoExpenses.Data.Services.DatabaseService">
+        <exactMethodMatcher methodName="GetExpense" />
+      </match>
+    </tracerFactory>
+    <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="WPF/DatabaseService.SaveExpense">
+      <match assemblyName="ContosoExpenses.Data" className="ContosoExpenses.Data.Services.DatabaseService">
+        <exactMethodMatcher methodName="SaveExpense" />
+      </match>
+    </tracerFactory>
+
+  </instrumentation>
+</extension>

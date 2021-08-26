@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  sqs-sender:
+    image: sqs-sender
+    build: 
+      context: ./sqs-sender
+      args: 
+        - NEW_RELIC_LICENSE_KEY
+        - SQS_URL
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY
+    ports:
+      - "8080:8080"
+        #env_file: env_file_name
+  sqs-receiver:
+    image: sqs-receiver
+    build: 
+      context: ./sqs-receiver
+      args: 
+        - NEW_RELIC_LICENSE_KEY
+        - SQS_URL
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY

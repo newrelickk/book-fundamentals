@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  svc1-java:
+    image: svc1-java
+    build: 
+      context: ./svc1-java
+      args: 
+        - NEW_RELIC_LICENSE_KEY
+        - SVC2_URL=http://svc2-go:8082
+    ports:
+      - "8081:8080"
+  svc2-go:
+    image: svc2-go
+    build: 
+      context: ./svc2-go
+      args: 
+        - NEW_RELIC_API_KEY
+        - SVC3_URL=http://svc3-dotnet
+    ports:
+      - "8082:8082"
+  svc3-dotnet:
+    image: svc3-dotnet
+    build: 
+      context: ./svc3-dotnet
+      args: 
+        - NEW_RELIC_LICENSE_KEY
+    ports:
+      - "8083:80"

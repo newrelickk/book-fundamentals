@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: ./PublisherWebApp
+    ports:
+      - "8080:80"
+      - "8443:443"
+    env_file: secrets.env
+  console:
+    build: ./SubscriberConsoleApp
+    env_file: secrets.env
+  redis:
+    image: "redis:alpine"
+    env_file: secrets.env
